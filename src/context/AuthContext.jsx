@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from 'react'
+import { googleLogout } from '@react-oauth/google'
 import api from '../api/client'
 
 const AuthContext = createContext(null)
@@ -16,24 +17,20 @@ export function AuthProvider({ children }) {
     setUser(u)
   }
 
-  const login = async (username, password) => {
-    const { data } = await api.post('/auth/login', { username, password })
-    persist(data)
-  }
-
-  const register = async (name, username, password) => {
-    const { data } = await api.post('/auth/register', { name, username, password })
+  const loginWithGoogle = async (credential) => {
+    const { data } = await api.post('/auth/google', { credential })
     persist(data)
   }
 
   const logout = () => {
+    googleLogout()
     localStorage.removeItem('token')
     localStorage.removeItem('user')
     setUser(null)
   }
 
   return (
-    <AuthContext.Provider value={{ user, login, register, logout }}>
+    <AuthContext.Provider value={{ user, loginWithGoogle, logout }}>
       {children}
     </AuthContext.Provider>
   )

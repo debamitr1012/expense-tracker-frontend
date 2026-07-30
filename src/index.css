@@ -95,6 +95,7 @@ body {
 .toggle-link { text-align: center; margin-top: 1.2rem; font-size: 0.88rem; color: var(--text-muted); }
 .toggle-link a { color: var(--primary); cursor: pointer; font-weight: 600; }
 .err { color: var(--danger); font-size: 0.82rem; margin-top: 0.6rem; min-height: 1rem; }
+.google-login { display: flex; justify-content: center; }
 
 /* ---- Theme toggle ---- */
 .theme-toggle {
