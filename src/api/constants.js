@@ -3,6 +3,14 @@ export const CATEGORIES = [
   'Shopping', 'Groceries', 'Entertainment', 'Miscellaneous'
 ]
 
+export const PAYMENT_METHODS = [
+  'UPI', 'Credit Card', 'Debit Card', 'Cash'
+]
+
+export const PAYMENT_ACCOUNTS = [
+  'ICICI Bank', 'Axis Bank', 'HDFC Bank', 'Yes Bank'
+]
+
 export const CAT_COLORS = {
   'Food': '#f59e0b',
   'Transport': '#3b82f6',

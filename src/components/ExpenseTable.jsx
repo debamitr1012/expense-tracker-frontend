@@ -43,6 +43,8 @@ export default function ExpenseTable({
       Date: e.date,
       Description: e.description,
       Category: e.category,
+      'Paid using': e.payment_method || 'Not specified',
+      Account: e.payment_source || '',
       Amount: e.amount,
     }))
 
@@ -94,7 +96,7 @@ export default function ExpenseTable({
 
       <table>
         <thead>
-          <tr><th>Date</th><th>Description</th><th>Category</th><th>Amount</th><th></th></tr>
+          <tr><th>Date</th><th>Description</th><th>Category</th><th>Paid using</th><th>Account</th><th>Amount</th><th></th></tr>
         </thead>
         <tbody>
           {visibleExpenses.map((e) => {
@@ -104,6 +106,8 @@ export default function ExpenseTable({
                 <td>{e.date}</td>
                 <td>{e.description}</td>
                 <td><span className="cat-pill" style={{ background: c + '22', color: c }}>{e.category}</span></td>
+                <td>{e.payment_method || 'Not specified'}</td>
+                <td>{e.payment_source || '—'}</td>
                 <td className="amt">{fmt(e.amount)}</td>
                 <td>
                   <button className="edit" style={{ marginRight: '0.5rem' }} onClick={() => onEdit(e)}>Edit</button>

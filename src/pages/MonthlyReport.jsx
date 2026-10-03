@@ -91,6 +91,7 @@ export default function MonthlyReport() {
         <div className="brand">💰 <span>ExpenseFlow</span></div>
         <div className="userbox">
           <Link className="btn btn-sm" to="/">Dashboard</Link>
+          <Link className="btn btn-sm" to="/payments">Payment breakdown</Link>
         </div>
       </div>
 

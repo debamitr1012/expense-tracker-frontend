@@ -113,6 +113,7 @@ export default function Dashboard() {
         <div className="brand">💰 <span>ExpenseFlow</span></div>
         <div className="userbox">
           <ThemeToggle />
+          <Link className="btn btn-sm" to="/payments">Payment breakdown</Link>
           <Link className="btn btn-sm" to="/monthly">Monthly report</Link>
           <div className="avatar">{initial}</div>
           <span>{user?.name}</span>
