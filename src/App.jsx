@@ -4,6 +4,7 @@ import { ThemeProvider } from './context/ThemeContext'
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
 import MonthlyReport from './pages/MonthlyReport'
+import PaymentReport from './pages/PaymentReport'
 
 function ProtectedRoute({ children }) {
   const { user } = useAuth()
@@ -29,6 +30,7 @@ export default function App() {
             <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
             <Route path="/" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
             <Route path="/monthly" element={<ProtectedRoute><MonthlyReport /></ProtectedRoute>} />
+            <Route path="/payments" element={<ProtectedRoute><PaymentReport /></ProtectedRoute>} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </BrowserRouter>

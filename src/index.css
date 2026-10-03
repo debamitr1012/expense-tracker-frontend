@@ -160,7 +160,7 @@ body {
 .panel + .grid2 { margin-top: 1.5rem; }
 .chart-box { position: relative; height: 280px; }
 
-.add-form { display: grid; grid-template-columns: 1.4fr 1fr 1.2fr 1fr auto; gap: 0.7rem; align-items: end; }
+.add-form { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.7rem; align-items: end; }
 @media (max-width: 800px) { .add-form { grid-template-columns: 1fr 1fr; } }
 .add-form .field { margin-bottom: 0; }
 
@@ -198,3 +198,14 @@ td { padding: 0.75rem 0.5rem; border-bottom: 1px solid var(--border-soft); font-
 .summary-row strong { color: var(--text); }
 .selected-row { background: rgba(99, 102, 241, 0.08); }
 .export-btn { display: inline-flex; align-items: center; gap: 0.4rem; }
+.payment-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.3rem 1rem; padding: 0.9rem 0; border-bottom: 1px solid var(--border-soft); }
+.payment-row:last-child { border-bottom: 0; }
+.payment-row strong { font-size: 0.95rem; }
+.payment-row .payment-meta { color: var(--text-muted); font-size: 0.85rem; }
+.payment-row .payment-amount { grid-column: 2; grid-row: 1 / span 2; align-self: center; font-weight: 700; }
+@media (max-width: 520px) {
+  .container { padding: 1rem; }
+  .topbar { padding: 0.8rem 1rem; }
+  .userbox { gap: 0.45rem; flex-wrap: wrap; justify-content: flex-end; }
+  .payment-row { gap: 0.3rem 0.6rem; }
+}
