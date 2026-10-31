@@ -4,11 +4,12 @@ export const CATEGORIES = [
 ]
 
 export const PAYMENT_METHODS = [
-  'UPI', 'Credit Card', 'Debit Card', 'Cash'
+  'Normal UPI', 'RuPay UPI', 'Credit Card', 'Debit Card', 'Cash'
 ]
 
 export const PAYMENT_ACCOUNTS = [
-  'ICICI Bank', 'Axis Bank', 'HDFC Bank', 'Yes Bank'
+  'ICICI Bank', 'Axis Bank', 'HDFC Bank', 'Yes Bank',
+  'IndusInd Bank', 'Slice Small Finance Bank'
 ]
 
 export const CAT_COLORS = {

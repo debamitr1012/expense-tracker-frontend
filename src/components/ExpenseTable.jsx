@@ -43,8 +43,8 @@ export default function ExpenseTable({
       Date: e.date,
       Description: e.description,
       Category: e.category,
-      'Paid using': e.payment_method || 'Not specified',
-      Account: e.payment_source || '',
+      'Payment method': e.payment_method || 'Not specified',
+      'Bank account': e.payment_source || '',
       Amount: e.amount,
     }))
 
@@ -86,7 +86,7 @@ export default function ExpenseTable({
       </div>
       <div className="filters">
         <select value={filterCat} onChange={(e) => setFilterCat(e.target.value)}>
-          <option value="">All categories</option>
+          <option value="">Choose category</option>
           {categories?.map((c) => <option key={c} value={c}>{c}</option>)}
         </select>
         <input type="date" value={filterDate} onChange={(e) => setFilterDate(e.target.value)} />
@@ -96,7 +96,7 @@ export default function ExpenseTable({
 
       <table>
         <thead>
-          <tr><th>Date</th><th>Description</th><th>Category</th><th>Paid using</th><th>Account</th><th>Amount</th><th></th></tr>
+          <tr><th>Date</th><th>Description</th><th>Category</th><th>Payment method</th><th>Bank account</th><th>Amount</th><th></th></tr>
         </thead>
         <tbody>
           {visibleExpenses.map((e) => {

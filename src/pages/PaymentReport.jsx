@@ -70,7 +70,7 @@ export default function PaymentReport() {
     const groups = new Map()
     for (const expense of monthExpenses) {
       const method = expense.payment_method || 'Not specified'
-      const source = expense.payment_source?.trim() || 'Account not specified'
+      const source = expense.payment_source?.trim() || 'Bank account not specified'
       const key = `${method}\u0000${source}`
       const group = groups.get(key) || { method, source, total: 0, count: 0 }
       group.total += Number(expense.amount) || 0
@@ -158,7 +158,7 @@ export default function PaymentReport() {
                 <div style={{ overflowX: 'auto' }}>
                   <table>
                     <thead>
-                      <tr><th>Date</th><th>Description</th><th>Paid using</th><th>Account</th><th>Amount</th></tr>
+                      <tr><th>Date</th><th>Description</th><th>Payment method</th><th>Bank account</th><th>Amount</th></tr>
                     </thead>
                     <tbody>
                       {monthExpenses.map((expense) => (

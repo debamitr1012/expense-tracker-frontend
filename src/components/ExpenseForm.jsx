@@ -7,7 +7,7 @@ export default function ExpenseForm({ categories, selectedExpense, onSave, onAdd
   const [desc, setDesc] = useState('')
   const [amount, setAmount] = useState('')
   const [category, setCategory] = useState('')
-  const [paymentMethod, setPaymentMethod] = useState('UPI')
+  const [paymentMethod, setPaymentMethod] = useState('')
   const [paymentSource, setPaymentSource] = useState('')
   const [newCategory, setNewCategory] = useState('')
   const [date, setDate] = useState(today)
@@ -20,9 +20,9 @@ export default function ExpenseForm({ categories, selectedExpense, onSave, onAdd
       setCategory(selectedExpense.category)
       const savedPaymentMethod = selectedExpense.payment_method || ''
       setPaymentMethod(
-        savedPaymentMethod === 'RuPay UPI'
-          ? 'UPI'
-          : PAYMENT_METHODS.includes(savedPaymentMethod) ? savedPaymentMethod : ''
+        PAYMENT_METHODS.includes(savedPaymentMethod)
+          ? savedPaymentMethod
+          : savedPaymentMethod === 'UPI' ? 'Normal UPI' : ''
       )
       setPaymentSource(selectedExpense.payment_source || '')
       setDate(selectedExpense.date)
@@ -31,7 +31,7 @@ export default function ExpenseForm({ categories, selectedExpense, onSave, onAdd
       setDesc('')
       setAmount('')
       setCategory('')
-      setPaymentMethod('UPI')
+      setPaymentMethod('')
       setPaymentSource('')
       setNewCategory('')
       setDate(today)
@@ -53,7 +53,7 @@ export default function ExpenseForm({ categories, selectedExpense, onSave, onAdd
       setDesc('')
       setAmount('')
       setCategory('')
-      setPaymentMethod('UPI')
+      setPaymentMethod('')
       setPaymentSource('')
       setDate(today)
     } finally {
@@ -85,24 +85,24 @@ export default function ExpenseForm({ categories, selectedExpense, onSave, onAdd
         <div className="field">
           <label>Category</label>
           <select value={category} onChange={(e) => setCategory(e.target.value)}>
-            <option value="">All categories</option>
+            <option value="">Choose category</option>
             {categories?.map((c) => <option key={c} value={c}>{c}</option>)}
           </select>
         </div>
         <div className="field">
-          <label>Account</label>
+          <label>Bank account</label>
           <select
             value={PAYMENT_ACCOUNTS.includes(paymentSource) ? paymentSource : ''}
             onChange={(e) => setPaymentSource(e.target.value)}
           >
-            <option value="">Choose account</option>
+            <option value="">Choose bank</option>
             {PAYMENT_ACCOUNTS.map((account) => <option key={account} value={account}>{account}</option>)}
           </select>
         </div>
         <div className="field">
-          <label>Paid using</label>
+          <label>Payment method</label>
           <select value={paymentMethod} onChange={(e) => setPaymentMethod(e.target.value)}>
-            {!paymentMethod && <option value="">Choose a payment method</option>}
+            <option value="">Choose method</option>
             {PAYMENT_METHODS.map((method) => <option key={method} value={method}>{method}</option>)}
           </select>
         </div>
